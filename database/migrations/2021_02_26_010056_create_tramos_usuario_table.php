@@ -16,7 +16,7 @@ class CreateTramosUsuarioTable extends Migration
         Schema::create('tramos_usuario', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tramo_id')->references('id')->on('tramos')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('usuario_id')->references('id')->on('usuarios')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('usuario_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->date('fecha_actividad');
             $table->date('fecha_reserva');
             $table->rememberToken();
