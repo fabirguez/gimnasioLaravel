@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <!--Nuevos Links-->
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Inicio') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Actividades') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Horario') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -34,6 +46,18 @@
                     </x-slot>
 
                     <x-slot name="content">
+
+                        <!--Mi perfil-->
+                        <!--Pendiente poner rutas-->
+                        <x-dropdown-link :href="route('dashboard')">
+                                {{ __('Mi perfil') }}
+                            </x-dropdown-link>
+
+                        <!--Configuracion-->
+                        <x-dropdown-link :href="route('dashboard')">
+                            {{ __('Configuracion') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
