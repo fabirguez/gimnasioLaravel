@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Filesystem Disk
@@ -29,7 +28,6 @@ return [
     */
 
     'disks' => [
-
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
@@ -42,6 +40,14 @@ return [
             'visibility' => 'public',
         ],
 
+        // Disco que almacenará las imágenes de perfil de los usuarios
+      'users' => [
+        'driver' => 'local',
+        'root' => storage_path('app/users'),
+        'url' => env('APP_URL').'/storage',
+        'visibility' => 'public',
+     ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -51,7 +57,6 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-
     ],
 
     /*
@@ -68,5 +73,4 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
-
 ];

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/configuracion', [UserController::class, 'config'])->middleware(['auth'])->name('config');
+Route::get('user/avatar/{filename}', [UserController::class, 'getImage'])->middleware(['auth'])->name('user.avatar');
+Route::post('/user/update', [UserController::class, 'update'])->middleware(['auth'])->name('user.update');
+Route::post('/user/updatepass', [UserController::class, 'updatepass'])->middleware(['auth'])->name('user.updatepass');
+Route::get('/user/password', [UserController::class, 'password'])->middleware(['auth'])->name('password');
+Route::get('/user/perfil/{id}', [UserController::class, 'profile'])->middleware(['auth'])->name('perfil');

@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'apellidos' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
-            'telefono' => 'required|integer|max:9',
+            'telefono' => 'required|integer|min:600000000|max:999999999',
             'direccion' => 'required|string|max:255',
         ]);
 

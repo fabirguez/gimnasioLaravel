@@ -49,13 +49,18 @@
 
                         <!--Mi perfil-->
                         <!--Pendiente poner rutas-->
-                        <x-dropdown-link :href="route('dashboard')">
+                        <x-dropdown-link :href="route('perfil',['id' => Auth::user()->id])">
                                 {{ __('Mi perfil') }}
                             </x-dropdown-link>
 
                         <!--Configuracion-->
-                        <x-dropdown-link :href="route('dashboard')">
+                        <x-dropdown-link :href="route('config')">
                             {{ __('Configuracion') }}
+                        </x-dropdown-link>
+
+                         <!--Cambia password-->
+                         <x-dropdown-link :href="route('password')">
+                            {{ __('Cambiar contraseña') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
