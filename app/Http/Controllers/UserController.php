@@ -122,4 +122,11 @@ class UserController extends Controller
 
         // return redirect()->route('password')->with(['status' => 'Configuración modificada con éxito']);
     }
+
+    public function list()
+    {
+        $users = User::all();
+
+        return view('user.listauser.php', compact('users'));
+    }
 }
