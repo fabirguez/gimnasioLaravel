@@ -10,6 +10,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                                             <!-- Información operación -->
+                                             <x-message-status class="mb-4" :status="session('status')" />  
                     <div class="inline-block mr-2 mt-2">
                         <a href="{{route('admin.users.create')}}" class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-blue-600 rounded-md bg-blue-500 hover:bg-blue-400">Añadir usuario</a>
                         <br><br>
@@ -45,7 +47,13 @@
                                 </td>
                                 <td class="py-3 px-6 text-center">
                                     <div class="flex items-center justify-center">
-                                        <span>Admin</span>
+                                        <span>
+                                            @if ($user->rol_id==1)
+                                                Usuario
+                                            @else
+                                                Admin
+                                            @endif
+                                        </span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">
@@ -60,9 +68,9 @@
                                             <form action="{{route('admin.users.destroy',$user)}}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <button type="submit" style="width: 1.25em"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                            </svg></a>
+                                            </svg></button>
                                             </form>
                                         </div>
                                     </div>
