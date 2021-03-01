@@ -18,7 +18,7 @@ class CreateTramosTable extends Migration
             $table->string('dia');
             $table->time('hora_inicio');
             $table->time('hora_fin');
-            $table->foreignId('actividad_id')->references('id')->on('actividades')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('actividad_id')->references('id')->on('activities')->onUpdate('cascade')->onDelete('cascade');
             $table->date('fecha_alta');
             $table->date('fecha_baja');
             $table->rememberToken();

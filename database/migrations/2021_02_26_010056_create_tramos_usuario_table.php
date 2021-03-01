@@ -13,12 +13,12 @@ class CreateTramosUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramos_usuario', function (Blueprint $table) {
+        Schema::create('tramo_user', function (Blueprint $table) {
             $table->id();
+
             $table->foreignId('tramo_id')->references('id')->on('tramos')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('usuario_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('fecha_actividad');
-            $table->date('fecha_reserva');
+            $table->foreignId('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
         });
