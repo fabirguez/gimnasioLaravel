@@ -27,6 +27,10 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Horario') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('admin.users.index')">
+                        {{ __('Usuarios') }}
+                    </x-nav-link>
                 </div>
             </div>
 
