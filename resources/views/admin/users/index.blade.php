@@ -79,6 +79,8 @@
                             @endforeach 
                         </tbody>
                     </table>
+<br>
+                    {{$users->links()}}
                    {{-- <table class="table table-striped">
                     <thead>
                         <tr>
