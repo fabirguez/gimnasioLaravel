@@ -18,7 +18,7 @@
                         {{ __('Inicio') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('admin.activities.index')" :active="request()->routeIs('admin.activities.index')">
                         {{ __('Actividades') }}
                     </x-nav-link>
 

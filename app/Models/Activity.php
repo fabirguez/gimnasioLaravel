@@ -13,4 +13,15 @@ class Activity extends Model
     // {
     //     return $this->hasMany('App\Models\Tramo');
     // }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'aforo',
+    ];
 }
