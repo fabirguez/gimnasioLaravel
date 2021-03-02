@@ -9,8 +9,22 @@ class Tramo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'dia',
+        'hora_inicio',
+        'hora_fin',
+        'actividad_id',
+        'fecha_alta',
+        'fecha_baja',
+    ];
+
     public function users()
     {
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
+
+    // public function activity()
+    // {
+    //     return $this->belongsTo('App\Models\Activity');
+    // }
 }

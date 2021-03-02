@@ -12,9 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    
                     <!--Nuevos Links-->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
@@ -24,12 +22,16 @@
                         {{ __('Actividades') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('tramo.index')" :active="request()->routeIs('tramo.index')">
                         {{ __('Horario') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('admin.users.index')">
+                    <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                         {{ __('Usuarios') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('admin.tramos.index')" :active="request()->routeIs('admin.tramos.index')">
+                        {{ __('Tramos') }}
                     </x-nav-link>
                 </div>
             </div>

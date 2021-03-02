@@ -47,6 +47,6 @@ class User extends Authenticatable
 
     public function tramos()
     {
-        return $this->belongsToMany('App\Models\Tramo');
+        return $this->belongsToMany('App\Models\Tramo')->withTimestamps();
     }
 }

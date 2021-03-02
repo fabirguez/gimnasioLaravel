@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     use HasFactory;
+
+    // public function tramos()
+    // {
+    //     return $this->hasMany('App\Models\Tramo');
+    // }
 }

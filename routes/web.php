@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TramoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::post('/user/update', [UserController::class, 'update'])->middleware(['aut
 Route::post('/user/updatepass', [UserController::class, 'updatepass'])->middleware(['auth'])->name('user.updatepass');
 Route::get('/user/password', [UserController::class, 'password'])->middleware(['auth'])->name('password');
 Route::get('/user/perfil/{id}', [UserController::class, 'profile'])->middleware(['auth'])->name('perfil');
+
+Route::resource('tramos', TramoController::class)->names('tramo');
