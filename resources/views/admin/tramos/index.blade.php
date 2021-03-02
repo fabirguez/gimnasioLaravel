@@ -78,6 +78,8 @@
                             @endforeach 
                         </tbody>
                     </table>
+                    <br>
+                    {{$tramos->links()}}
                    {{-- <table class="table table-striped">
                     <thead>
                         <tr>

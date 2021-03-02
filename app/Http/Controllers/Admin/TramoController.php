@@ -17,7 +17,7 @@ class TramoController extends Controller
      */
     public function index()
     {
-        $tramos = Tramo::all();
+        $tramos = Tramo::paginate(5);
         $activities = Activity::all();
         // $horas = DB::statement('select * from tramos order by hora_inicio');
 
