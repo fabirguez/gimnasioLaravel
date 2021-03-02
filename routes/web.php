@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Tramo_UserController;
 use App\Http\Controllers\TramoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::get('/user/password', [UserController::class, 'password'])->middleware(['
 Route::get('/user/perfil/{id}', [UserController::class, 'profile'])->middleware(['auth'])->name('perfil');
 
 Route::resource('tramos', TramoController::class)->names('tramo');
+
+Route::resource('mistramos', Tramo_userController::class)->names('mistramos');

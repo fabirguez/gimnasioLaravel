@@ -33,6 +33,10 @@
                     <x-nav-link :href="route('admin.tramos.index')" :active="request()->routeIs('admin.tramos.index')">
                         {{ __('Tramos') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('mistramos.index')" :active="request()->routeIs('mistramos.index')">
+                        {{ __('Mis Tramos') }}
+                    </x-nav-link>
                 </div>
             </div>
 
