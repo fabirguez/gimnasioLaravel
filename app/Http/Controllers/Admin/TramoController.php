@@ -56,7 +56,7 @@ class TramoController extends Controller
         // } else {
 
         foreach ($tramos as $tramo) {
-            if ($tramo->hora_inicio >= $request->hora_inicio && $tramo->hora_fin <= $request->hora_fin) {
+            if ($tramo->hora_inicio >= $request->hora_inicio && $tramo->hora_fin <= $request->hora_fin && $tramo->dia == $request->dia) {
                 $ocupado = true;
             }
         }//no funciona bien, comprobar if

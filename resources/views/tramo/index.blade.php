@@ -30,7 +30,9 @@
                               @foreach ($horas as $hora)
                             <tr>
                                 
-                              <td class="px-6 py-4 text-center">{{$hora->hora_inicio . '-' . $hora->hora_fin}}</td>
+                              <td class="px-6 py-4 text-center">
+                                {{$hora->hora_inicio . '-' . $hora->hora_fin}}                                
+                              </td>
 
                               
                               
