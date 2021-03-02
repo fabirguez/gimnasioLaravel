@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Tramo_UserController;
 use App\Http\Controllers\TramoController;
 use App\Http\Controllers\UserController;
@@ -33,6 +34,8 @@ Route::post('/user/updatepass', [UserController::class, 'updatepass'])->middlewa
 Route::get('/user/password', [UserController::class, 'password'])->middleware(['auth'])->name('password');
 Route::get('/user/perfil/{id}', [UserController::class, 'profile'])->middleware(['auth'])->name('perfil');
 
-Route::resource('tramos', TramoController::class)->names('tramo');
+Route::resource('tramos', TramoController::class)->middleware(['auth'])->names('tramo');
 
-Route::resource('mistramos', Tramo_userController::class)->names('mistramos');
+Route::resource('mistramos', Tramo_userController::class)->middleware(['auth'])->names('mistramos');
+
+Route::get('api', [ApiController::class, 'index'])->name('api');

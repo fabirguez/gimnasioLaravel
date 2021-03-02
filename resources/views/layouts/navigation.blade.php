@@ -37,6 +37,10 @@
                     <x-nav-link :href="route('mistramos.index')" :active="request()->routeIs('mistramos.index')">
                         {{ __('Mis Tramos') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('api')" :active="request()->routeIs('api')">
+                        {{ __('Tomese un descanso') }}
+                    </x-nav-link>
                 </div>
             </div>
 
