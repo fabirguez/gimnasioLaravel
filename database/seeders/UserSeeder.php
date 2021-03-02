@@ -42,5 +42,7 @@ class UserSeeder extends Seeder
         $user1->imagen = '-';
 
         $user1->save();
+
+        User::factory(30)->create();
     }
 }

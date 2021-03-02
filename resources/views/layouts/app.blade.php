@@ -17,7 +17,8 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100" style="background-image: url('https://www.laguiago.com/wp-content/uploads/2015/09/15977203_1006104546162586_1399801185803890816_n.jpg');">
+            
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -28,7 +29,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main >
                 {{ $slot }}
             </main>
         </div>
