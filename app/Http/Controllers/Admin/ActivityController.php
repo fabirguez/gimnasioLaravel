@@ -15,7 +15,7 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $activities = Activity::paginate(3);
+        $activities = Activity::orderBy('aforo')->paginate(4);
 
         return view('admin.activities.index', compact('activities'));
     }
