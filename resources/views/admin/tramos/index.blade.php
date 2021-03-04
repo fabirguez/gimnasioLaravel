@@ -16,6 +16,12 @@
                         <a href="{{route('admin.tramos.create')}}" class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-blue-600 rounded-md bg-blue-500 hover:bg-blue-400">Añadir tramo</a>
                         <br><br>
                     </div>
+                </div>
+                    <form>
+                        <label>Buscar por dia</label>
+                        <input type="text" name="buscadia" id="buscadia">
+                    </form>
+                <div>
                     <table class="min-w-max w-full table-auto">
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">

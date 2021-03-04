@@ -15,10 +15,17 @@ class TramoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tramos = Tramo::paginate(5);
-        $activities = Activity::all();
+        $buscadia = $request->buscadia;
+        if ($buscadia == '') {
+            $tramos = Tramo::paginate(5);
+            $activities = Activity::all();
+        } else {
+            $tramos = Tramo::where('dia', 'LIKE', "%$buscadia%")->paginate(5);
+            $activities = Activity::all();
+        }
+
         // $horas = DB::statement('select * from tramos order by hora_inicio');
 
         return view('admin.tramos.index', compact('tramos', 'activities'));
