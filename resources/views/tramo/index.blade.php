@@ -37,16 +37,25 @@
                               
                               
                               <td class="px-6 py-4 text-center">
+                                
                                 @foreach ($tramos as $tramo)
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Lunes')
                                 @foreach ($activities as $activity)
-                                @if ($tramo->actividad_id == $activity->id)  
+                                @if ($tramo->actividad_id == $activity->id)
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                                   @endif
                                   @endforeach
-                                </td>
+                                
+                            
                               
 
                               
@@ -55,7 +64,14 @@
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Martes')  
                                 @foreach ($activities as $activity)
                                 @if ($tramo->actividad_id == $activity->id)  
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                             @endif
@@ -69,7 +85,14 @@
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Miercoles')  
                                 @foreach ($activities as $activity)
                                 @if ($tramo->actividad_id == $activity->id)  
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                             @endif
@@ -83,7 +106,14 @@
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Jueves')  
                                 @foreach ($activities as $activity)
                                 @if ($tramo->actividad_id == $activity->id)  
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                             @endif
@@ -97,7 +127,14 @@
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Viernes')  
                                 @foreach ($activities as $activity)
                                 @if ($tramo->actividad_id == $activity->id)  
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                             @endif
@@ -111,7 +148,14 @@
                                 @if($hora->hora_inicio == $tramo->hora_inicio && $hora->hora_fin == $tramo->hora_fin && $tramo->dia == 'Sabado')  
                                 @foreach ($activities as $activity)
                                 @if ($tramo->actividad_id == $activity->id)  
+                                <form action="{{route('mistramos.store')}}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="idact" value="{{$activity->id}}"/>
+                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
+                              </button>
+                            </form>
                                 @endif
                                 @endforeach
                             @endif
