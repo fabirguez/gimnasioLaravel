@@ -73,10 +73,17 @@ class TramoController extends Controller
         // } else {
 
         foreach ($tramos as $tramo) {
-            if ($tramo->hora_inicio >= $request->hora_inicio && $tramo->hora_fin <= $request->hora_fin && $tramo->dia == $request->dia) {
+            if ($tramo->hora_inicio <= $request->hora_inicio && $tramo->hora_fin >= $request->hora_fin && $tramo->dia == $request->dia) {
                 $ocupado = true;
             }
-        }//no funciona bien, comprobar if
+            // elseif ($tramo->hora_inicio > $request->hora_inicio && $tramo->hora_fin >= $request->hora_fin && $tramo->dia == $request->dia) {
+            //     $ocupado = true;
+            // } elseif ($tramo->hora_inicio <= $request->hora_inicio && $tramo->hora_fin <= $request->hora_fin && $tramo->dia == $request->dia) {
+            //     $ocupado = true;
+            // } elseif ($tramo->hora_inicio < $request->hora_inicio && $tramo->hora_fin < $request->hora_fin && $tramo->dia == $request->dia) {
+            //     $ocupado = false;
+            // }
+        }//no funciona bien, solo mira si no está dentro de las horas
 
         if (!$ocupado) {
             Tramo::create([
