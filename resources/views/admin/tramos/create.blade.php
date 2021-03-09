@@ -27,7 +27,7 @@
                             'Miercoles' => 'Miercoles',
                             'Jueves' => 'Jueves',
                             'Viernes' => 'Viernes',
-                            'Sabado' => 'Sabado',), '', ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"]) !!}
+                            'Sabado' => 'Sabadoo',), '', ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"]) !!}
                           
                          {{-- @error('name')
                             <span class="mb-4">{{$message}}</span>
@@ -37,27 +37,49 @@
 
                         <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                          {!! Form::label('hora_inicio', 'Hora de Inicio', ['class'=>"block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"]) !!}
-                         {!! Form::text('hora_inicio', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'HH:MM:SS']) !!}
+                         {!! Form::time('hora_inicio', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'HH:MM:SS']) !!}
                          </div>
 
                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                             {!! Form::label('hora_fin', 'Hora de Fin', ['class'=>"block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"]) !!}
-                            {!! Form::text('hora_fin', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'12:30:00']) !!}
-                            </div>
+                            {!! Form::time('hora_fin', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'12:30:00']) !!}
+                          
+                        </div>
 
                             <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+
+                                {{-- <select name="actividades" id="actividades"> 
+                                    <option value="" selected>Seleccione uno...</option>
+                                @foreach ($activities as $activity)
+                                        <option value="{{ $activity->id }}">
+                                            {{$activity->nombre}}
+                                        </option>
+                                        @endforeach
+                                    </select> --}}
+
                                 {!! Form::label('actividad_id', 'ID Actividad', ['class'=>"block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"]) !!}
                                 {!! Form::text('actividad_id', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'1']) !!}
-                                </div>
+                                
+                                {{-- {!! Form::select('actividad_id', $activities, '', ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"]) !!} --}}
+                              
+                               {{-- <select name="buscaactividad" id="buscaactividad"> 
+                                    <option value="" selected>Seleccione uno...</option>
+                                @foreach ($activities as $activity)
+                                        <option value="{{ $activity->id }}">
+                                            {{$activity->nombre}}
+                                        </option>
+                                        @endforeach
+                                    </select> --}}
+                            </div>
 
                                 <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                     {!! Form::label('fecha_alta', 'Fecha de Alta', ['class'=>"block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"]) !!}
-                                    {!! Form::text('fecha_alta', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'AAAA-MM-DD']) !!}
+                                    {!! Form::date('fecha_alta', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'AAAA-MM-DD']) !!}
                                     </div>
 
                                     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                                         {!! Form::label('fecha_baja', 'Fecha de Baja', ['class'=>"block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"]) !!}
-                                        {!! Form::text('fecha_baja', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'2021-28-02']) !!}
+                                        {!! Form::date('fecha_baja', null, ['class'=>"appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3", 'placeholder'=>'2021-28-02']) !!}
                                         </div>
 
                         
@@ -75,3 +97,6 @@
         </div>
     </div>
 </x-app-layout>
+
+
+

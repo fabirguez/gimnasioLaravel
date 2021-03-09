@@ -23,8 +23,8 @@ class Tramo extends Model
         return $this->belongsToMany('App\Models\User')->withTimestamps();
     }
 
-    // public function activity()
-    // {
-    //     return $this->belongsTo('App\Models\Activity');
-    // }
+    public function activity()
+    {
+        return $this->belongsTo('App\Models\Activity');
+    }
 }

@@ -46,7 +46,9 @@ class TramoController extends Controller
      */
     public function create()
     {
-        return view('admin.tramos.create');
+        $activities = Activity::all();
+
+        return view('admin.tramos.create', compact('activities'));
     }
 
     /**
@@ -60,8 +62,8 @@ class TramoController extends Controller
         $ocupado = false;
         $request->validate([
             'dia' => 'required|string|max:255',
-            'hora_inicio' => 'required|date_format:H:i:s',
-            'hora_fin' => 'required|date_format:H:i:s|after:hora_inicio',
+            'hora_inicio' => 'required|date_format:H:i',
+            'hora_fin' => 'required|date_format:H:i|after:hora_inicio',
             'actividad_id' => 'required|integer',
             'fecha_alta' => 'required|date_format:Y-m-d',
             'fecha_baja' => 'required|date_format:Y-m-d',

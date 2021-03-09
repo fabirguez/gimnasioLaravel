@@ -9,10 +9,10 @@ class Activity extends Model
 {
     use HasFactory;
 
-    // public function tramos()
-    // {
-    //     return $this->hasMany('App\Models\Tramo');
-    // }
+    public function tramos()
+    {
+        return $this->hasMany('App\Models\Tramo');
+    }
 
     /**
      * The attributes that are mass assignable.
