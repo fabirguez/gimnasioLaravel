@@ -18,11 +18,19 @@ class TramoController extends Controller
     public function index(Request $request)
     {
         $buscadia = $request->buscadia;
-        if ($buscadia == '') {
+        $buscaactividad = $request->buscaactividad;
+        if ($buscadia == '' && $buscaactividad == '') {
             $tramos = Tramo::paginate(5);
             $activities = Activity::all();
-        } else {
+        } elseif ($buscadia != '' && $buscaactividad == '') {
             $tramos = Tramo::where('dia', 'LIKE', "%$buscadia%")->paginate(5);
+            $activities = Activity::all();
+        } elseif ($buscadia == '' && $buscaactividad != '') {
+            $tramos = Tramo::where('actividad_id', 'LIKE', "%$buscaactividad%")->paginate(5);
+            $activities = Activity::all();
+        } else {
+            $tramos = Tramo::where('actividad_id', 'LIKE', "%$buscaactividad%")
+                            ->where('dia', 'LIKE', "%$buscadia%")->paginate(5);
             $activities = Activity::all();
         }
 

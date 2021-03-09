@@ -23,7 +23,7 @@
                     </x-nav-link>
 
                     <x-nav-link :href="route('tramo.index')" :active="request()->routeIs('tramo.index')">
-                        {{ __('Horario') }}
+                        {{ __('Horario General') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">

@@ -6,6 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 
+// public function index(Request $request)
+//     {
+//         $buscadia = $request->buscadia;
+//         $buscaactividad = $request->buscaactividad;
+//         if ($buscadia == '' && $buscaactividad == '') {
+//             $tramos = Tramo::paginate(5);
+//             $activities = Activity::all();
+//         } elseif ($buscadia != '' && $buscaactividad == '') {
+//             $tramos = Tramo::where('dia', 'LIKE', "%$buscadia%")->paginate(5);
+//             $activities = Activity::all();
+//         } elseif ($buscadia == '' && $buscaactividad != '') {
+//             $tramos = Tramo::where('actividad_id', 'LIKE', "%$buscaactividad%")->paginate(5);
+//             $activities = Activity::all();
+//         } else {
+//             $tramos = Tramo::where('actividad_id', 'LIKE', "%$buscaactividad%")
+//                             ->where('dia', 'LIKE', "%$buscadia%")->paginate(5);
+//             $activities = Activity::all();
+//         }
 class ActivityController extends Controller
 {
     /**
@@ -13,9 +31,30 @@ class ActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $activities = Activity::orderBy('aforo')->paginate(4);
+        $buscaname = $request->buscaname;
+        $ordenaaforo = $request->ordenaaforo;
+
+        if ($buscaname == '' && $ordenaaforo == '') {
+            $activities = Activity::paginate(5);
+        } elseif ($buscaname != '' && $ordenaaforo == '') {
+            $activities = Activity::where('nombre', 'LIKE', "%$buscaname%")->paginate(5);
+        } elseif ($buscaname == '' && $ordenaaforo != '') {
+            if ($ordenaaforo == 'menor') {
+                $activities = Activity::orderBy('aforo', 'asc')->paginate(5);
+            } else {
+                $activities = Activity::orderBy('aforo', 'desc')->paginate(5);
+            }
+        } else {
+            if ($ordenaaforo == 'menor') {
+                $activities = Activity::where('nombre', 'LIKE', "%$buscaname%")->orderBy('aforo', 'asc')->paginate(5);
+            } else {
+                $activities = Activity::where('nombre', 'LIKE', "%$buscaname%")->orderBy('aforo', 'desc')->paginate(5);
+            }
+        }
+
+        // $activities = Activity::orderBy('aforo')->paginate(4);
 
         return view('admin.activities.index', compact('activities'));
     }

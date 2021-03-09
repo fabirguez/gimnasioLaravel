@@ -14,9 +14,21 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate(5);
+        $buscaname = $request->buscaname;
+        $buscarol = $request->buscarol;
+
+        if ($buscaname == '' && $buscarol == '') {
+            $users = User::paginate(5);
+        } elseif ($buscaname != '' && $buscarol == '') {
+            $users = User::where('name', 'LIKE', "%$buscaname%")->paginate(5);
+        } elseif ($buscaname == '' && $buscarol != '') {
+            $users = User::where('rol_id', 'LIKE', "%$buscarol%")->paginate(5);
+        } else {
+            $users = User::where('name', 'LIKE', "%$buscaname%")
+                        ->where('rol_id', 'LIKE', "%$buscarol%")->paginate(5);
+        }
 
         return view('admin.users.index', compact('users'));
     }

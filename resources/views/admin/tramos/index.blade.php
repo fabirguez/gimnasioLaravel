@@ -18,9 +18,21 @@
                     </div>
                 </div>
                     <form>
-                        <label>Buscar por dia</label>
+                        <label style="font-weight: bold">Buscar por dia</label>
                         <input type="text" name="buscadia" id="buscadia">
+                        <label style="font-weight: bold">Buscar por actividad</label>
+                        <select name="buscaactividad" id="buscaactividad">
+                            <option value="" selected>Seleccione uno...</option>
+                        @foreach ($activities as $activity)
+                                <option value="{{ $activity->id }}">
+                                    {{$activity->nombre}}
+                                </option>
+                                @endforeach
+                            </select>
+                        <input type="submit">
                     </form>
+
+                 
                 <div>
                     <table class="min-w-max w-full table-auto">
                         <thead>

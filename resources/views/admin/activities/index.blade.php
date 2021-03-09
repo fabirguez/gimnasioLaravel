@@ -16,6 +16,16 @@
                         <a href="{{route('admin.activities.create')}}" class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-blue-600 rounded-md bg-blue-500 hover:bg-blue-400">Añadir Actividad</a>
                         <br><br>
                     </div>
+                    <form>
+                        <label style="font-weight: bold">Buscar por nombre</label>
+                        <input type="text" name="buscaname" id="buscaname">
+                        <label style="font-weight: bold">Ordenar por aforo</label>
+                        <label >Menor</label>
+                        <input type="radio" name="ordenaaforo" id="ordenaaforo" value="menor">
+                        <label>Mayor</label>
+                        <input type="radio" name="ordenaaforo" id="ordenaaforo" value="mayor">
+                        <input type="submit" class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400">
+                    </form>
                     <table class="min-w-max w-full table-auto">
                         <thead>
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
