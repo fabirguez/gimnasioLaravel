@@ -122,9 +122,11 @@ class Tramo_userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TramoUser $t)
+    public function destroy($tramo_id)
     {
-        $t->delete();
+        $iduser = Auth::user()->id;
+        $del = TramoUser::where('tramo_id', $tramo_id)->where('user_id', $iduser);
+        $del->delete();
 
         return redirect()->route('mistramos.index')->with(['status' => 'Reserva borrada con éxito']);
     }
