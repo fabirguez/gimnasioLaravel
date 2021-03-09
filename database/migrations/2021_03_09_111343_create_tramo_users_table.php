@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTramosUsuarioTable extends Migration
+class CreateTramoUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTramosUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramo_user', function (Blueprint $table) {
+        Schema::create('tramo_users', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('tramo_id')->references('id')->on('tramos')->onUpdate('cascade')->onDelete('cascade');
@@ -31,6 +31,6 @@ class CreateTramosUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tramos_usuario');
+        Schema::dropIfExists('tramo_users');
     }
 }

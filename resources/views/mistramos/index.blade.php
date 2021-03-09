@@ -31,34 +31,51 @@
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 text-sm font-light">
+                                 
                                 @foreach ($tramxus as $t)
+                               
                                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                                     <td class="py-3 px-6 text-left">
                                         <div class="flex items-center">
+                                            {{-- <span>{{$t->user_id}}</span> --}}
+                                            @foreach ($tramos as $tramo)
+                                            @if($t->tramo_id==$tramo->id)
                                             @foreach ($activities as $activity)
-                                            @if ($t->actividad_id == $activity->id)  
+                                            @if ($tramo->actividad_id == $activity->id)  
                                             <span>{{$activity->nombre}}</span>
                                             @endif
                                             @endforeach
+                                            @endif
+                                            @endforeach 
                                             
                                         </div>
                                     </td>
                                     <td class="py-3 px-6 text-left">
                                         <div class="flex items-center">
-                                            
-                                            <span>{{$t->dia}}</span>
+                                            @foreach ($tramos as $tramo)
+                                            @if($t->tramo_id==$tramo->id)
+                                            <span>{{$tramo->dia}}</span>
+                                            @endif
+                                            @endforeach 
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-6 text-left">
+                                        <div class="flex items-center">
+                                            @foreach ($tramos as $tramo)
+                                            @if($t->tramo_id==$tramo->id)
+                                            <span>{{$tramo->hora_inicio}}</span>
+                                            @endif
+                                            @endforeach 
                                         </div>
                                     </td>
                                     <td class="py-3 px-6 text-left">
                                         <div class="flex items-center">
                                             
-                                            <span>{{$t->hora_inicio}}</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            
-                                            <span>{{$t->hora_fin}}</span>
+                                            @foreach ($tramos as $tramo)
+                                            @if($t->tramo_id==$tramo->id)
+                                            <span>{{$tramo->hora_fin}}</span>
+                                            @endif
+                                            @endforeach 
                                         </div>
                                     </td>
                                     
@@ -79,8 +96,11 @@
                                     </td>
                                 </tr>
                                 @endforeach 
+                                
                             </tbody>
                         </table>
+                        <br>
+                    {{$tramxus->links()}}
 
                     </div>
 

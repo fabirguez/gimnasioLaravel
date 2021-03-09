@@ -45,7 +45,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>
@@ -67,7 +67,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>
@@ -88,7 +88,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>
@@ -109,7 +109,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>
@@ -130,7 +130,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>
@@ -151,7 +151,7 @@
                                 <form action="{{route('mistramos.store')}}" method="POST">
                                   @csrf
                                   <input type="hidden" name="idact" value="{{$activity->id}}"/>
-                                  <input type="hidden" vame="idtramo" value="{{$tramo->id}}"/>
+                                  <input type="hidden" name="idtramo" value="{{$tramo->id}}"/>
                                   <button type="submit" style="width: 1.25em">  
                                 {{$activity->nombre}}
                               </button>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\Tramo;
-use App\Models\Tramo_user;
+use App\Models\TramoUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,12 +20,14 @@ class Tramo_userController extends Controller
     {
         $iduser = Auth::user()->id;
 
-        // $tramos = Tramo::all();
-        $tramxus = User::find($iduser)->tramos;
+        $tramxus = TramoUser::where('user_id', $iduser)->paginate(5);
+        $tramos = Tramo::all();
+        // // $tramos = Tramo::all();
+        // $tramxus = User::find($iduser)->tramos;
 
         $activities = Activity::All();
 
-        return view('mistramos.index', compact('tramxus', 'activities'));
+        return view('mistramos.index', compact('tramos', 'tramxus', 'activities'));
     }
 
     public function list()
@@ -49,23 +51,36 @@ class Tramo_userController extends Controller
      */
     public function store(Request $request)
     {
+        $ocupado = false;
+        $tramos = TramoUser::All();
         // $idact = $request->idact;
         // $idtramo =
+        foreach ($tramos as $tramo) {
+            if ($request->idtramo == $tramo->tramo_id && Auth::user()->id == $tramo->user_id) {
+                $ocupado = true;
+            }
+        }
+        if (!$ocupado) {
+            // $tr = new TramoUser();
+            // $tr->user_id =
+            // $tr->tramo_id = $request->idtramo;
 
-        // $iduser = Auth::user()->id;
+            TramoUser::create([
+                'user_id' => Auth::user()->id,
+                'tramo_id' => $request->idtramo,
+            ]);
+            // // $tramos = Tramo::all();
+            // $tramxus = User::find($iduser);
 
-        // // $tramos = Tramo::all();
-        // $tramxus = User::find($iduser)->tramos;
+            // $tramxus->user_id = Auth::user()->id;
+            // $tramxus->tramo_id = $request->idtramo;
 
-        // $activities = Activity::All();
+            // $tr->save();
 
-        $modelo = new Tramo_user();
-        $modelo->user_id = Auth::user()->id;
-        $modelo->tramo_id = $request->idtramo;
-
-        $modelo->save();
-
-        return redirect()->route('mistramos.index')->with(['status' => 'Reserva añadida con éxito']);
+            return redirect()->route('mistramos.index')->with(['status' => 'Reserva añadida con éxito']);
+        } else {
+            return redirect()->route('mistramos.index')->with(['status' => 'La reserva ya existe']);
+        }
         // return view('mistramos.index', compact('tramxus', 'activities'));
     }
 
@@ -107,11 +122,9 @@ class Tramo_userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tramo $t)
+    public function destroy(TramoUser $t)
     {
-        $iduser = Auth::user()->id;
-
-        User::find($iduser)->$t->id->delete();
+        $t->delete();
 
         return redirect()->route('mistramos.index')->with(['status' => 'Reserva borrada con éxito']);
     }
